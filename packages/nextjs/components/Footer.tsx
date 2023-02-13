@@ -27,35 +27,44 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-sm">
             <div>
               <a
-                href="https://github.com/scaffold-eth/se-2"
+                href="https://github.com/scobru/lines-monorepo"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                Fork me
+                Code
               </a>
             </div>
             <span>·</span>
             <div>
-              Built with <HeartIcon className="inline-block h-4 w-4" /> at 🏰{" "}
+              Coded <HeartIcon className="inline-block h-4 w-4" /> by{" "}
               <a
-                href="https://buidlguidl.com/"
+                href="https://github.com/scobru"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                BuidlGuidl
+                scobru
+              </a>{" "}
+              with{" "}
+              <a
+                href="https://github.com/scaffold-eth/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-2"
+              >
+                Scaffold-Eth
               </a>
             </div>
             <span>·</span>
             <div>
               <a
-                href="https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA"
+                href="https://twitter/scobru1988"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                Support
+                Contact me
               </a>
             </div>
           </div>

@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { BugAntIcon, SparklesIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import React from "react";
 
 const Home: NextPage = () => {
@@ -15,40 +13,35 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">scaffold-eth 2</span>
+            <span className="block text-4xl font-bold">▤ L I N E S</span>
           </h1>
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold">packages/nextjs/pages/index.tsx</code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract <code className="italic bg-base-300 text-base font-bold">YourContract.sol</code> in{" "}
-            <code className="italic bg-base-300 text-base font-bold">packages/hardhat/contracts</code>
-          </p>
-        </div>
-
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contract
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <SparklesIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Experiment with{" "}
-                <Link href="/example-ui" passHref className="link">
-                  Example UI
-                </Link>{" "}
-                to build your own UI.
-              </p>
+          <div className="prose">
+            <h1 className="text-center mb-8 text-2xl font-semibold">What is this?</h1>
+            <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+              <strong>Lines</strong> is a plain-text file stored on the Polygon blockchain. There are 2^256-1 lines on
+              this wall. Each line is <strong>100 characters</strong> long.
+            </p>
+            <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+              <strong>LineTweet</strong> is a minimal Twitter-like social network. You can follow other users, create,
+              repost, and like posts.
+            </p>
+            <h1 className="text-center mb-8 text-2xl font-semibold my-5">Is it free? </h1>
+            <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+              <strong>LINES</strong>
+              <br />
+              Creation of new lines is free. Each modification of a line increases the cost for editing by
+              <strong>0.01 MATIC</strong>. If someone replaces your text you will receive 90% of what one has paid.
+            </p>
+            <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+              <strong>LINETWEETS</strong> <br />
+              Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the users
+              wallet.
+            </p>
+            <h1 className="text-center mb-8 text-2xl font-semibold my-5">Any Rules?</h1>
+            <div className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+              You are free to write whatever you like. The Wall will never be moderated. We believe that freedom of
+              speech is one of the unalienable right for every man. Leave a message. It will be stored on-chain.
+              Forever.
             </div>
           </div>
         </div>

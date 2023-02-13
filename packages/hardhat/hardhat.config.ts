@@ -3,6 +3,7 @@ dotenv.config();
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
+import "@nomiclabs/hardhat-etherscan";
 
 // If not set, it uses ours Alchemy's default API key.
 // You can get your own at https://dashboard.alchemyapi.io
@@ -55,6 +56,15 @@ const config: HardhatUserConfig = {
       accounts: [deployerPrivateKey],
     },
   },
+
+  etherscan: {
+    apiKey: {
+      polygon: String(process.env.POLYGONSCAN_API_KEY),
+      optimisticEthereum: "YOUR_OPTIMISTIC_ETHERSCAN_API_KEY",
+      arbitrumOne: "YOUR_ARBISCAN_API_KEY",
+    },
+  },
+
   solidity: "0.8.17",
 };
 

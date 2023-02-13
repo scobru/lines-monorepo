@@ -4,6 +4,32 @@ import DisplayVariable from "~~/components/scaffold-eth/Contract/DisplayVariable
 import { ReadOnlyFunctionForm } from "./ReadOnlyFunctionForm";
 import { WriteOnlyFunctionForm } from "./WriteOnlyFunctionForm";
 import { Dispatch, SetStateAction } from "react";
+import ContractData from "~~/generated/hardhat_contracts.json";
+
+type GeneratedContractType = {
+  address: string;
+  abi: any[];
+};
+
+/**
+ * @param chainId - deployed contract chainId
+ * @param contractName - name of deployed contract
+ * @returns {GeneratedContractType} object containing contract address and abi
+ */
+
+const getDeployedContract = (
+  chainId: string | undefined,
+  contractName: string | undefined | null,
+): GeneratedContractType | undefined => {
+  if (!chainId || !contractName) {
+    return;
+  }
+
+  const contractsAtChain = ContractData[chainId as keyof typeof ContractData];
+  const contractsData = contractsAtChain?.[0]?.contracts;
+
+  return contractsData?.[contractName as keyof typeof contractsData];
+};
 
 /**
  * @param {Contract} contract
@@ -164,4 +190,5 @@ export {
   getContractWriteMethods,
   getFunctionInputKey,
   getParsedEthersError,
+  getDeployedContract,
 };

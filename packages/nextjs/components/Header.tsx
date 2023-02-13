@@ -1,9 +1,8 @@
 import React, { useState, useRef, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Faucet } from "~~/components/scaffold-eth";
 import RainbowKitCustomConnectButton from "~~/components/scaffold-eth/RainbowKitCustomConnectButton";
-import { Bars3Icon, BugAntIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, SparklesIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -17,7 +16,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
       passHref
       className={`${
         isActive ? "bg-secondary" : ""
-      } hover:bg-secondary focus:bg-secondary py-2 px-3 text-sm rounded-full gap-2`}
+      } hover:bg-secondary focus:bg-secondary py-2 px-4 text-sm font-bold rounded-full gap-2`}
     >
       {children}
     </Link>
@@ -38,18 +37,24 @@ export default function Header() {
   const navLinks = (
     <>
       <li>
-        <NavLink href="/">Home</NavLink>
+        <NavLink href="/">HOME</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink href="/debug">
           <BugAntIcon className="h-4 w-4" />
           Debug Contracts
         </NavLink>
+      </li> */}
+      <li>
+        <NavLink href="/lines">
+          <SparklesIcon className="h-4 w-4" />
+          LINES
+        </NavLink>
       </li>
       <li>
-        <NavLink href="/example-ui">
+        <NavLink href="/linetweets">
           <SparklesIcon className="h-4 w-4" />
-          Example UI
+          LINETWEETS
         </NavLink>
       </li>
     </>
@@ -80,12 +85,12 @@ export default function Header() {
           )}
         </div>
         <div className="hidden lg:flex items-center gap-2 mx-4">
-          <Link href="/" passHref className="flex relative w-10 h-10">
+          {/* <Link href="/" passHref className="flex relative w-10 h-10">
             <Image alt="scaffold-eth logo" className="cursor-pointer" fill src="/logo.svg" />
-          </Link>
+          </Link> */}
           <div className="flex flex-col">
-            <span className="font-bold">Scaffold-eth</span>
-            <span className="text-xs">Forkable Ethereum dev stack</span>
+            <span className="font-bold">▤ L I N E S</span>
+            <span className="text-xs">Decentralized Open Board</span>
           </div>
         </div>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">{navLinks}</ul>

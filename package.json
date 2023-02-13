@@ -1,5 +1,5 @@
 {
-  "name": "se-2",
+  "name": "lines-monorepo",
   "version": "0.0.1",
   "private": true,
   "workspaces": {
@@ -9,25 +9,25 @@
     ]
   },
   "scripts": {
-    "account": "yarn workspace @se-2/hardhat account",
-    "chain": "yarn workspace @se-2/hardhat chain",
-    "deploy": "yarn workspace @se-2/hardhat deploy",
-    "compile": "yarn workspace @se-2/hardhat compile",
-    "generate": "yarn workspace @se-2/hardhat generate",
-    "hardhat:lint": "yarn workspace @se-2/hardhat lint",
-    "hardhat:lint-staged": "yarn workspace @se-2/hardhat lint-staged",
-    "hardhat:test": "yarn workspace @se-2/hardhat test",
-    "start": "yarn workspace @se-2/nextjs dev",
-    "next:lint": "yarn workspace @se-2/nextjs lint",
-    "next:format": "yarn workspace @se-2/nextjs format",
-    "next:check-types": "yarn workspace @se-2/nextjs check-types",
+    "account": "yarn workspace @lines-monorepo/hardhat account",
+    "chain": "yarn workspace @lines-monorepo/hardhat chain",
+    "deploy": "yarn workspace @lines-monorepo/hardhat deploy",
+    "compile": "yarn workspace @lines-monorepo/hardhat compile",
+    "generate": "yarn workspace @lines-monorepo/hardhat generate",
+    "hardhat:lint": "yarn workspace @lines-monorepo/hardhat lint",
+    "hardhat:lint-staged": "yarn workspace @lines-monorepo/hardhat lint-staged",
+    "hardhat:test": "yarn workspace @lines-monorepo/hardhat test",
+    "start": "yarn workspace @lines-monorepo/nextjs dev",
+    "next:lint": "yarn workspace @lines-monorepo/nextjs lint",
+    "next:format": "yarn workspace @lines-monorepo/nextjs format",
+    "next:check-types": "yarn workspace @lines-monorepo/nextjs check-types",
     "postinstall": "husky install",
     "precommit": "lint-staged",
-    "vercel": "yarn workspace @se-2/nextjs vercel"
+    "vercel": "yarn workspace @lines-monorepo/nextjs vercel"
   },
   "packageManager": "yarn@3.2.3",
   "devDependencies": {
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3"
+    "lint-staged": "^13.1.2"
   }
 }

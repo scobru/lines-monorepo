@@ -22,3 +22,7 @@ h4 {
 p {
   margin: 1rem 0;
 }
+
+.scrollDark {
+  scrollbar-color: dark;
+}

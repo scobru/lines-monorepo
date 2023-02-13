@@ -1,67 +1,122 @@
-# Scaffold-Eth 2
+# **Lines** ▤
 
-⚠️ This project is currently under active development. Things might break. Feel free to check the open issues & create new ones.
+>⚠️ This project is currently under active development. Things might break. Feel free to check the open issues & create new ones.
 
-*The best way to get started building decentralized applications on Ethereum!*
+## **🤔 What is this?**
 
-A new version of [scaffold-eth](https://github.com/scaffold-eth/scaffold-eth/tree/master) with its core functionality. Built using NextJS, RainbowKit, Wagmi and Typescript.
+Lines is a decentralized message board.
 
-- ✅ Contract component to easily edit the smart contracts and view & test the contract on your frontend
-- 🔥 Burner wallet & local faucet
-- 🔐 Integration with the different wallet providers
+- It is a place where you can leave a message for others.
+- It is a place where you can read messages left by others.
+- It is a place where you can express yourself.
+- It is a place where you can be free.
 
----
+Lines is a plain-text file stored on the Polygon blockchain.
+There are 2^256-1 lines on this wall. Each line is 100 characters long.
+You can also made a classic tweet style post. You can like, retweet, comment, and follow other users.
+You can also delete your tweets. The Wall will never be moderated.
+We believe that freedom of speech is one of the unalienable right for every man.
+Leave a message. It will be stored on-chain. Forever. Check out the website to try it yourself.
 
-## Quickstart
+------------------------------------------------------------------------------
 
-1. Clone this repo & install dependencies
+## **👛 Is it free?**
+
+### **Lines Board**
+
+Creation of new lines is free. Each modification of a line increases the cost for editing by 0.01 MATIC.
+If someone replaces your text you will receive 90% of what one has paid.
+
+### **Line Tweets**
+
+Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the user's wallet. The more followers you have, the more you earn.
+
+```text
+FOLLOW_PRICE = 150;
+LIKE_PRICE = 100;
+RETWEET_PRICE = 250;
+```
+
+------------------------------------------------------------------------------
+
+## **📖 Any Rules?**
+
+You are free to write whatever you like. The Wall will never be moderated. We believe that freedom of speech is one of the unalienable right for every man. Leave a message. It will be stored on-chain. Forever.
+
+------------------------------------------------------------------------------
+
+## **💻 Deployments**
+
+Polygon Mainnet
+
+- Lines v1 : 0x31215c9C7fa6241765547F0b13e5A21d229C5168.
+- LineTweets v1 : 0x85044CDDA4f445E605888BEf29Ad137c3317f0B1
+
+------------------------------------------------------------------------------
+
+## **Packages 📦**
+
+- [hardhat](./packages/hardhat) - Hardhat smart contracts for the Lines project
+- [nextjs](./packages/nextjs) - NextJS frontend for the Lines project
+
+------------------------------------------------------------------------------
+
+## **Quickstart 🚀**
+
+### 1. Clone this repo & install dependencies
 
 ```
-git clone https://github.com/scaffold-eth/se-2.git
-cd se-2
+
+git clone <https://github.com/Lines/lines-monorepo.git>
+cd lines-monorepo
 yarn install
-```
-
-2. Run a local network in the first terminal:
 
 ```
+
+### 2. Run a local network in the first terminal
+
+```
+
 yarn chain
-```
-
-3. On a second terminal, deploy the test contract:
 
 ```
+
+### 3. On a second terminal, deploy the test contract
+
+```
+
 yarn deploy
-```
-
-4. On a third terminal, start your NextJS app:
 
 ```
+
+### 4. On a third terminal, start your NextJS app
+
+```
+
 yarn start
+
 ```
 
-Visit your app on: `http://localhost:3000`.
+------------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Run smart contract test with `yarn hardhat:test`
+## **Deploying Smart Contracts ⚒️**
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend in `packages/nextjs/pages`
-- Edit your deployment scripts in `packages/hardhat/deploy`
-
-## Deploying Smart Contracts
 Once you are ready to deploy your smart contracts, there are a few things you need to adjust.
 
-1. Select the network
+### 1. Select the network
 
 By default, ```yarn deploy``` will deploy the contract to the local network. You can change the defaultNetwork in `packages/hardhat/hardhat.config.js.` You could also simply run ```yarn deploy --network target_network``` to deploy to another network.
 
 Check the `hardhat.config.js` for the networks that are pre-configured. You can also add other network settings to the `hardhat.config.js file`. Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
 
-2. Generate a new account or add one to deploy the contract(s) from. Additionally you will need to add your Alchemy API key. Rename `.env.example` to `.env` and fill the required keys.
+### 2. Generate a new account or add one to deploy the contract(s) from. Additionally you will need to add your Alchemy API key. Rename `.env.example` to `.env` and fill the required keys
 
 ```
+
 ALCHEMY_API_KEY="",
 DEPLOYER_PRIVATE_KEY=""
+
 ```
 
 The deployer account is the account that will deploy your contracts and execute calls you make in your deployment script.
@@ -73,10 +128,12 @@ You can generate a random account / private key with ```yarn generate``` or ad
 Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
 
 ```
+
 yarn deploy --network network_name
+
 ```
 
-## Deploying your NextJS App
+## **Deploying your NextJS App 📡**
 
 Run `yarn vercel` and follow the steps to deploy to Vercel. Once you log in (email, github, etc), the default options should work. It'll give you a public URL.
 
@@ -86,9 +143,8 @@ If you want to redeploy to the same production URL you can run `yarn vercel --pr
 
 **Hint**: We recommend connecting the project GitHub repo to Vercel so you the gets automatically deployed when pushing to `main`
 
-## Contributing to Scaffold-Eth 2
+## Contributing to Lines 👨‍👩‍👧‍👦
 
-We welcome contributions to Scaffold-Eth 2!
+We welcome contributions to Lines !
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/se-2/blob/master/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-Eth 2.
-
+Please see [CONTRIBUTING.MD](https://github.com/scobru/lines-monorepo/blob/master/CONTRIBUTING.md) for more information and guidelines for contributing to Lines .
