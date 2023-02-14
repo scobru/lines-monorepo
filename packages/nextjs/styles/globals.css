@@ -25,4 +25,5 @@ p {
 
 .scrollDark {
   scrollbar-color: dark;
+  overflow-anchor: auto;
 }

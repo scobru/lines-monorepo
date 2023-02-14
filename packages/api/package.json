@@ -1,0 +1,20 @@
+{
+  "name": "@lines-monorepo/api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "scobru",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3",
+    "solc": "^0.4.23",
+    "typescript": "^4.9.5",
+    "web3": "^1.8.2"
+  }
+}

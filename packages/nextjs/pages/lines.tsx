@@ -4,9 +4,11 @@ import React, { useEffect } from "react";
 import { useContract, useProvider, useNetwork, useSigner, useAccount } from "wagmi";
 
 import { getDeployedContract } from "../components/scaffold-eth/Contract/utilsContract";
-import { ContractInterface } from "ethers";
+import { ContractInterface, Transaction } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
 import { formatEther } from "ethers/lib/utils.js";
+
+import express from "express";
 
 const Lines: NextPage = () => {
   //define type EXPORTLINE
@@ -71,14 +73,35 @@ const Lines: NextPage = () => {
   }
 
   async function getPendingMatic() {
-    const pendingMatic = await linesContract?.pendingMatic(account);
-    setPendingMatic(pendingMatic);
+    if (account) {
+      const _pendingMatic = await linesContract?.pendingMatic(account?.address);
+      setPendingMatic(_pendingMatic);
+    }
   }
 
   async function uploadLines() {
-    const lines = await linesContract?.uploadLines(newLines, newUID);
-    // use toast to display success message
-    if (lines) toast.success("Lines Updated");
+    if (!linesContract) {
+      toast.error("No Contract");
+      return;
+    }
+    if (newLines.length === 0) {
+      toast.error("No new lines to upload");
+      return;
+    }
+    const lines: Transaction = await linesContract?.uploadLines(newLines, newUID);
+    toast.info("Waiting for transaction to be mined");
+    while (!lines.hash) {
+      toast.info("Waiting for transaction to be mined");
+    }
+    linesContract?.on("LineUpdated", (uid: number, str: string, edits: number) => {
+      toast.success("New Line Added",);
+      console.log(uid, str, edits);
+    });
+    // handle error if transaction reverts
+    linesContract?.on("error", (error: any) => {
+      toast.error("Transaction Reverted");
+      toast.error(error)
+    });
   }
 
   async function getLines() {
@@ -122,20 +145,23 @@ const Lines: NextPage = () => {
   }
 
   async function getContractData() {
-    const _LENGTH = await linesContract?.LINE_LENGTH();
-    const _PRICE = await linesContract?.LINE_PRICE();
+    const _LENGTH: number = await linesContract?.LINE_LENGTH();
+    const _PRICE: number = await linesContract?.LINE_PRICE();
     setLineLength(_LENGTH);
     setLinePrice(_PRICE);
+
+
   }
 
   useEffect(() => {
-    if (linesContract) {
+    if (linesContract && deployedContract && account) {
       setPageLines(10);
       getPendingMatic();
+      console.log(linesContract, signer, provider)
       getContractData();
       get10LinesUnsorted();
     }
-  }, [linesContract, sortedLines]);
+  }, [linesContract, sortedLines, signer]);
 
   return (
     <>
@@ -160,9 +186,9 @@ const Lines: NextPage = () => {
             </div>*/}
           </div>
         )}
-        <div className="flex items-center my-5">
+        <div className="flex-auto align-top my-5">
           <button
-            className="btn font-bold w-auto mx-auto "
+            className="btn font-bold w-auto mx-2"
             onClick={async () => {
               await get10LinesUnsorted();
             }}
@@ -170,21 +196,23 @@ const Lines: NextPage = () => {
             reset
           </button>
 
-          <label htmlFor="modal-post" className="btn font-bold w-auto my-5 ">
+          <label htmlFor="modal-post" className="btn font-bold w-auto mx-2 ">
             post
           </label>
-          <label htmlFor="modal-get" className="btn w-auto my-5">
+          <label htmlFor="modal-get" className="btn w-auto mx-2">
             goTo
           </label>
-          <button
-            className="btn w-auto my-5"
-            onClick={async () => {
-              await withdraw();
-            }}
-            disabled={pendingMatic === 0}
-          >
-            withdraw {formatEther(pendingMatic)}
-          </button>
+          {Number(pendingMatic) > 0 && (
+            <button
+              className="btn w-auto mx-2"
+              onClick={async () => {
+                await withdraw();
+              }}
+              disabled={pendingMatic === 0}
+            >
+              withdraw {formatEther(pendingMatic)}
+            </button>
+          )}
         </div>
         <div>
           <input type="checkbox" id="modal-post" className="modal-toggle" />
@@ -284,15 +312,13 @@ const Lines: NextPage = () => {
                 </button>
                 <div>
                   {sortedLines ? (
-                    <div className="flex flex-col items-left w-full my-2 font-mono">
+                    <table className="flex flex-col items-left w-full my-2 font-mono">
                       {sortedLines.map((line, index) => (
-                        <table className="table-caption" key={index}>
-                          <tr>
-                            <td>{line.str}</td>
-                          </tr>
-                        </table>
+                        <tr key={index}>
+                          <td>{line.str}</td>
+                        </tr>
                       ))}
-                    </div>
+                    </table>
                   ) : (
                     <div className="flex flex-col items-center justify-center w-full">null</div>
                   )}
@@ -306,22 +332,18 @@ const Lines: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-center w-full bg-transparent my-5 ">
+        <div className="flex-auto  w-full bg-transparent ">
           {unsortedLines ? (
-            <div className="flex flex-col w-full my-2">
-              <table className="table-compact w-full">
-                <tbody>
-                  <div className="h-auto w-full">
-                    {unsortedLines.map((line, index) => (
-                      <tr key={index}>
-                        <td className="text-sm font-mono">{Number(line.uid)}</td>
-                        <td className="text-sm font-mono">{Number(line.edits)} edits</td>
-                        <td className="text-sm font-mono"> ▷▷▷</td>
-                        <td className="text-sm font-mono">{line.str}</td>
-                      </tr>
-                    ))}
-                  </div>
-                </tbody>
+            <div className="flex flex-col overflow-y-scroll anchor h-96" id="anchor">
+
+              <table className="table-compact w-3/4 mx-auto ">
+                {unsortedLines.map((line) => (
+                  <tr key={line.uid}>
+                    <td className="text-sm font-mono">{Number(line.uid)}</td>
+                    <td className="text-sm font-mono">{Number(line.edits)} edits</td>
+                    <td className="text-sm font-mono">▷▷▷ {line.str}</td>
+                  </tr>
+                ))}
               </table>
             </div>
           ) : (

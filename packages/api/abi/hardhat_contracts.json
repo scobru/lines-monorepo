@@ -1,0 +1,462 @@
+{
+  "137": [
+    {
+      "name": "polygon",
+      "chainId": "137",
+      "contracts": {
+        "LineTweets": {
+          "address": "0x85044CDDA4f445E605888BEf29Ad137c3317f0B1",
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "author",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "string",
+                  "name": "message",
+                  "type": "string"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "createdAt",
+                  "type": "uint256"
+                }
+              ],
+              "name": "TweetSent",
+              "type": "event"
+            },
+            {
+              "inputs": [],
+              "name": "FOLLOW_PRICE",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "LIKE_PRICE",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "RETWEET_PRICE",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address payable",
+                  "name": "_followed",
+                  "type": "address"
+                }
+              ],
+              "name": "follow",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getTweets",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "id",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address payable",
+                      "name": "author",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "message",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "likes",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "retweets",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "createdAt",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct LineTweets.Tweet[]",
+                  "name": "",
+                  "type": "tuple[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_user",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_count",
+                  "type": "uint256"
+                }
+              ],
+              "name": "getTweetsOf",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "id",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address payable",
+                      "name": "author",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "message",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "likes",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "retweets",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "createdAt",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct LineTweets.Tweet[]",
+                  "name": "",
+                  "type": "tuple[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_tweetId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "like",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_tweetId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "retweet",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "string",
+                  "name": "message",
+                  "type": "string"
+                }
+              ],
+              "name": "tweet",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address payable",
+                  "name": "_followed",
+                  "type": "address"
+                }
+              ],
+              "name": "unfollow",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            }
+          ]
+        },
+        "Lines": {
+          "address": "0x31215c9C7fa6241765547F0b13e5A21d229C5168",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "lineLength",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "linePrice",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "int256",
+                  "name": "uid",
+                  "type": "int256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "string",
+                  "name": "str",
+                  "type": "string"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "edits",
+                  "type": "uint256"
+                }
+              ],
+              "name": "LineUpdated",
+              "type": "event"
+            },
+            {
+              "inputs": [],
+              "name": "LINE_LENGTH",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "LINE_PRICE",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "devAddress",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "int256",
+                  "name": "startIndex",
+                  "type": "int256"
+                },
+                {
+                  "internalType": "int256",
+                  "name": "amount",
+                  "type": "int256"
+                }
+              ],
+              "name": "getLines",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "int256",
+                      "name": "uid",
+                      "type": "int256"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "str",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "edits",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct Lines.ExportLine[]",
+                  "name": "out",
+                  "type": "tuple[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "int256[]",
+                  "name": "uids",
+                  "type": "int256[]"
+                }
+              ],
+              "name": "getLinesUnordered",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "int256",
+                      "name": "uid",
+                      "type": "int256"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "str",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "edits",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct Lines.ExportLine[]",
+                  "name": "out",
+                  "type": "tuple[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "addr",
+                  "type": "address"
+                }
+              ],
+              "name": "pendingMatic",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "string[]",
+                  "name": "strings",
+                  "type": "string[]"
+                },
+                {
+                  "internalType": "int256[]",
+                  "name": "uids",
+                  "type": "int256[]"
+                }
+              ],
+              "name": "uploadLines",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
