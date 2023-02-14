@@ -42,13 +42,13 @@ RETWEET_PRICE = 250;
 ## **📷 Screen**
 
 LINES
-![Lines](.\screen1.png "lines screen 1")
+![Lines](https://github.com/scobru/lines-monorepo/blob/main/screen1.png "lines screen 1")
 
 LINETWEETS - dashboard
-![LineTweets](.\screen2.png "lines screen 1")
+![LineTweets](https://github.com/scobru/lines-monorepo/blob/main/screen2.png "lines screen 1")
 
 LINETWEETS - post
-![LineTweets2](.\screen3.png "lines screen 1")
+![LineTweets2](https://github.com/scobru/lines-monorepo/blob/main/screen3.png "lines screen 1")
 
 ------------------------------------------------------------------------------
 
