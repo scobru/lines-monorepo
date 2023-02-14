@@ -64,7 +64,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                Contact me
+                Follow me
               </a>
             </div>
           </div>

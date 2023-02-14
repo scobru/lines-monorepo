@@ -39,6 +39,19 @@ RETWEET_PRICE = 250;
 
 ------------------------------------------------------------------------------
 
+## **📷 Screen**
+
+LINES
+![Lines](.\screen1.png "lines screen 1")
+
+LINETWEETS - dashboard
+![LineTweets](.\screen2.png "lines screen 1")
+
+LINETWEETS - post
+![LineTweets2](.\screen3.png "lines screen 1")
+
+------------------------------------------------------------------------------
+
 ## **📖 Any Rules?**
 
 You are free to write whatever you like. The Wall will never be moderated. We believe that freedom of speech is one of the unalienable right for every man. Leave a message. It will be stored on-chain. Forever.
@@ -65,7 +78,7 @@ Polygon Mainnet
 
 ### 1. Clone this repo & install dependencies
 
-```
+```bin/bash
 
 git clone <https://github.com/Lines/lines-monorepo.git>
 cd lines-monorepo
@@ -75,7 +88,7 @@ yarn install
 
 ### 2. Run a local network in the first terminal
 
-```
+```bin/bash
 
 yarn chain
 
@@ -83,7 +96,7 @@ yarn chain
 
 ### 3. On a second terminal, deploy the test contract
 
-```
+```bin/bash
 
 yarn deploy
 
@@ -91,7 +104,7 @@ yarn deploy
 
 ### 4. On a third terminal, start your NextJS app
 
-```
+```bin/bash
 
 yarn start
 
@@ -104,15 +117,15 @@ yarn start
 
 Once you are ready to deploy your smart contracts, there are a few things you need to adjust.
 
-### 1. Select the network
+### 1: Select the network
 
 By default, ```yarn deploy``` will deploy the contract to the local network. You can change the defaultNetwork in `packages/hardhat/hardhat.config.js.` You could also simply run ```yarn deploy --network target_network``` to deploy to another network.
 
 Check the `hardhat.config.js` for the networks that are pre-configured. You can also add other network settings to the `hardhat.config.js file`. Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
 
-### 2. Generate a new account or add one to deploy the contract(s) from. Additionally you will need to add your Alchemy API key. Rename `.env.example` to `.env` and fill the required keys
+### 2: Generate a new account or add one to deploy the contract(s) from. Additionally you will need to add your Alchemy API key. Rename `.env.example` to `.env` and fill the required keys
 
-```
+```text
 
 ALCHEMY_API_KEY="",
 DEPLOYER_PRIVATE_KEY=""
@@ -123,11 +136,11 @@ The deployer account is the account that will deploy your contracts and execute 
 
 You can generate a random account / private key with ```yarn generate``` or add the private key of your crypto wallet. ```yarn generate``` will create a random account and add the DEPLOYER_PRIVATE_KEY to the .env file. You can check the generated account with ```yarn account```.
 
-3. Deploy your smart contract(s)
+### 3: Deploy your smart contract(s)
 
 Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
 
-```
+```bash
 
 yarn deploy --network network_name
 
