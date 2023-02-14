@@ -21,10 +21,10 @@ const Home: NextPage = () => {
               <strong>Lines</strong> is a plain-text file stored on the Polygon blockchain. There are 2^256-1 lines on
               this wall. Each line is <strong>100 characters</strong> long.
             </p>
-            <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+           {/*  <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
               <strong>LineTweet</strong> is a minimal Twitter-like social network. You can follow other users, create,
               repost, and like posts.
-            </p>
+            </p> */}
             <h1 className="text-center mb-8 text-2xl font-semibold my-5">Is it free? </h1>
             <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
               <strong>LINES</strong>
@@ -32,11 +32,11 @@ const Home: NextPage = () => {
               Creation of new lines is free. Each modification of a line increases the cost for editing by
               <strong>0.01 MATIC</strong>. If someone replaces your text you will receive 90% of what one has paid.
             </p>
-            <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
+           {/*  <p className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
               <strong>LINETWEETS</strong> <br />
               Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the users
               wallet.
-            </p>
+            </p> */}
             <h1 className="text-center mb-8 text-2xl font-semibold my-5">Any Rules?</h1>
             <div className="text-center justify-self-center w-2/4 mx-auto mb-8 text-xl font-thin">
               You are free to write whatever you like. The Wall will never be moderated. We believe that freedom of

@@ -51,12 +51,12 @@ export default function Header() {
           LINES
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink href="/linetweets">
           <SparklesIcon className="h-4 w-4" />
           LINETWEETS
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 

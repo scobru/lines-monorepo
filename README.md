@@ -13,8 +13,7 @@ Lines is a decentralized message board.
 
 Lines is a plain-text file stored on the Polygon blockchain.
 There are 2^256-1 lines on this wall. Each line is 100 characters long.
-You can also made a classic tweet style post. You can like, retweet, comment, and follow other users.
-You can also delete your tweets. The Wall will never be moderated.
+The Wall will never be moderated.
 We believe that freedom of speech is one of the unalienable right for every man.
 Leave a message. It will be stored on-chain. Forever. Check out the website to try it yourself.
 
@@ -27,7 +26,7 @@ Leave a message. It will be stored on-chain. Forever. Check out the website to t
 Creation of new lines is free. Each modification of a line increases the cost for editing by 0.01 MATIC.
 If someone replaces your text you will receive 90% of what one has paid.
 
-### **Line Tweets**
+<!-- ### **Line Tweets**
 
 Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the user's wallet. The more followers you have, the more you earn.
 
@@ -35,20 +34,7 @@ Any time you like , create, repost, or follow an user, a small amount of MATIC i
 FOLLOW_PRICE = 150;
 LIKE_PRICE = 100;
 RETWEET_PRICE = 250;
-```
-
-------------------------------------------------------------------------------
-
-## **📷 Screen**
-
-LINES
-![Lines](https://github.com/scobru/lines-monorepo/blob/main/screen1.png "lines screen 1")
-
-LINETWEETS - dashboard
-![LineTweets](https://github.com/scobru/lines-monorepo/blob/main/screen2.png "lines screen 1")
-
-LINETWEETS - post
-![LineTweets2](https://github.com/scobru/lines-monorepo/blob/main/screen3.png "lines screen 1")
+``` -->
 
 ------------------------------------------------------------------------------
 
