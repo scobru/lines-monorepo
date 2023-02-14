@@ -1,5 +1,6 @@
-import type { NextPage } from "next";
+import type { NextPage, } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import React from "react";
 
 const Home: NextPage = () => {
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
           <h1 className="text-center mb-8">
             <span className="block text-4xl font-bold">▤ L I N E S</span>
             <span className="block text-2xl font-thin">Open Board</span>
-            <img src="/android-chrome-384x384.png" alt="Lines Logo" className="w-1/4 mx-auto my-5" />
+            <Image src="/android-chrome-384x384.png" alt="Lines Logo" className="w-1/4 mx-auto my-5" />
           </h1>
           <div className="prose">
             <h1 className="text-center mb-8 text-2xl font-semibold">What is this?</h1>

@@ -8,8 +8,6 @@ import { ContractInterface, Transaction } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
 import { formatEther } from "ethers/lib/utils.js";
 
-import express from "express";
-
 const Lines: NextPage = () => {
   //define type EXPORTLINE
   const { chain } = useNetwork();
@@ -94,13 +92,13 @@ const Lines: NextPage = () => {
       toast.info("Waiting for transaction to be mined");
     }
     linesContract?.on("LineUpdated", (uid: number, str: string, edits: number) => {
-      toast.success("New Line Added",);
+      toast.success("New Line Added");
       console.log(uid, str, edits);
     });
     // handle error if transaction reverts
     linesContract?.on("error", (error: any) => {
       toast.error("Transaction Reverted");
-      toast.error(error)
+      toast.error(error);
     });
   }
 
@@ -149,15 +147,13 @@ const Lines: NextPage = () => {
     const _PRICE: number = await linesContract?.LINE_PRICE();
     setLineLength(_LENGTH);
     setLinePrice(_PRICE);
-
-
   }
 
   useEffect(() => {
     if (linesContract && deployedContract && account) {
       setPageLines(10);
       getPendingMatic();
-      console.log(linesContract, signer, provider)
+      console.log(linesContract, signer, provider);
       getContractData();
       get10LinesUnsorted();
     }
@@ -335,9 +331,8 @@ const Lines: NextPage = () => {
         <div className="flex-auto  w-full bg-transparent ">
           {unsortedLines ? (
             <div className="flex flex-col overflow-y-scroll anchor h-96" id="anchor">
-
               <table className="table-compact w-3/4 mx-auto ">
-                {unsortedLines.map((line) => (
+                {unsortedLines.map(line => (
                   <tr key={line.uid}>
                     <td className="text-sm font-mono">{Number(line.uid)}</td>
                     <td className="text-sm font-mono">{Number(line.edits)} edits</td>
