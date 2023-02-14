@@ -6,8 +6,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Scaffold-eth App</title>
-        <meta name="description" content="Created with 🏗 scaffold-eth" />
+        <title>L I N E S</title>
+        <meta name="description" content="Lines Open Board" />
       </Head>
 
       <div className="flex items-center flex-col flex-grow pt-10">
