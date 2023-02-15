@@ -26,15 +26,15 @@ Leave a message. It will be stored on-chain. Forever. Check out the website to t
 Creation of new lines is free. Each modification of a line increases the cost for editing by 0.01 MATIC.
 If someone replaces your text you will receive 90% of what one has paid.
 
-<!-- ### **Line Tweets**
+### **Line Tweets**
 
 Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the user's wallet. The more followers you have, the more you earn.
 
 ```text
-FOLLOW_PRICE = 150;
-LIKE_PRICE = 100;
-RETWEET_PRICE = 250;
-``` -->
+FOLLOW_PRICE = 0.0015;
+LIKE_PRICE = 0.001;
+RETWEET_PRICE = 0.0025;
+```
 
 ------------------------------------------------------------------------------
 

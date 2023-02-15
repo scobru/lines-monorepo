@@ -6,7 +6,7 @@ import { useContract, useProvider, useNetwork, useSigner, useAccount } from "wag
 import { getDeployedContract } from "../components/scaffold-eth/Contract/utilsContract";
 import { ContractInterface, Transaction } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
-import { formatEther } from "ethers/lib/utils.js";
+import { formatEther, parseEther } from "ethers/lib/utils.js";
 
 const Lines: NextPage = () => {
   //define type EXPORTLINE
@@ -70,6 +70,16 @@ const Lines: NextPage = () => {
     setNewLines([...newLines]);
   }
 
+  async function getEdits() {
+    let edits = 0;
+    for (let i = 0; i < newUID.length; i++) {
+      const lines = await linesContract?.getLines(newUID[i], 1);
+      edits += lines[0].edits;
+    }
+    return edits;
+
+  }
+
   async function getPendingMatic() {
     if (account) {
       const _pendingMatic = await linesContract?.pendingMatic(account?.address);
@@ -82,19 +92,30 @@ const Lines: NextPage = () => {
       toast.error("No Contract");
       return;
     }
+
     if (newLines.length === 0) {
       toast.error("No new lines to upload");
       return;
     }
-    const lines: Transaction = await linesContract?.uploadLines(newLines, newUID);
+
+    const edits = await getEdits()
+    const value = edits * Number(formatEther(line_price));
+
+    toast.info("Uploading Lines");
+
+    const lines: Transaction = await linesContract?.uploadLines(newLines, newUID, { value: parseEther(value.toString()) });
     toast.info("Waiting for transaction to be mined");
+
     while (!lines.hash) {
       toast.info("Waiting for transaction to be mined");
     }
+
     linesContract?.on("LineUpdated", (uid: number, str: string, edits: number) => {
       toast.success("New Line Added");
+      get10LinesUnsorted();
       console.log(uid, str, edits);
     });
+
     // handle error if transaction reverts
     linesContract?.on("error", (error: any) => {
       toast.error("Transaction Reverted");
@@ -153,7 +174,6 @@ const Lines: NextPage = () => {
     if (linesContract && deployedContract && account) {
       setPageLines(10);
       getPendingMatic();
-      console.log(linesContract, signer, provider);
       getContractData();
       get10LinesUnsorted();
     }
@@ -332,13 +352,15 @@ const Lines: NextPage = () => {
           {unsortedLines ? (
             <div className="flex flex-col overflow-y-scroll anchor h-96" id="anchor">
               <table className="table-compact w-3/4 mx-auto ">
-                {unsortedLines.map(line => (
-                  <tr key={line.uid}>
-                    <td className="text-sm font-mono">{Number(line.uid)}</td>
-                    <td className="text-sm font-mono">{Number(line.edits)} edits</td>
-                    <td className="text-sm font-mono">▷▷▷ {line.str}</td>
-                  </tr>
-                ))}
+                <tbody>
+                  {unsortedLines.map(line => (
+                    <tr key={line.uid}>
+                      <td className="text-sm font-mono">{Number(line.uid)}</td>
+                      <td className="text-sm font-mono">{Number(line.edits)} edits</td>
+                      <td className="text-sm font-mono">{line.str}</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
           ) : (

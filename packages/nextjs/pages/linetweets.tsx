@@ -6,8 +6,8 @@ import { useContract, useProvider, useNetwork, useSigner, useAccount } from "wag
 import { getDeployedContract } from "../components/scaffold-eth/Contract/utilsContract";
 import { ContractInterface } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
-import { HeartIcon, ArrowPathIcon, UserPlusIcon } from "@heroicons/react/24/solid";
-
+import { HeartIcon, ArrowPathIcon, UserPlusIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { formatEther } from "ethers/lib/utils.js";
 const LineTweets: NextPage = () => {
   // Define Tweet type
   type Tweet = {
@@ -31,7 +31,7 @@ const LineTweets: NextPage = () => {
   const [message, setMessage] = React.useState("");
   const [userSearch, setUserSearch] = React.useState("");
   const deployedContract = getDeployedContract(chain?.id.toString(), "LineTweets");
-
+  const [followerCount, setFollowerCount] = React.useState(0);
   let ctxAddress!: string;
   let ctxAbi: ContractInterface = [];
 
@@ -56,8 +56,9 @@ const LineTweets: NextPage = () => {
       setLikePrice(Number(likePrice));
       setReTweetPrice(Number(reTweetPrice));
       setListTweet(tweetList);
-      console.log(tweetList);
+      getFollowerCount();
 
+      console.log(tweetList);
       console.log(ctx);
       console.log("followPrice: ", followPrice, "likePrice: ", likePrice, "reTweetPrice: ", reTweetPrice);
     }
@@ -86,6 +87,7 @@ const LineTweets: NextPage = () => {
       await tx.wait();
       toast.success("Tweeted!");
       setMessage("");
+      getContractData();
     }
   };
 
@@ -118,6 +120,14 @@ const LineTweets: NextPage = () => {
       toast.success("Followed!");
     }
   };
+
+  const getFollowerCount = async function getFollowerCount() {
+    if (ctx && signer) {
+      const followerCount = await ctx.getFollowersCount(signer?.getAddress());
+      setFollowerCount(Number(followerCount));
+    }
+  };
+
 
   return (
     <>
@@ -180,16 +190,18 @@ const LineTweets: NextPage = () => {
           </button>
           <div className="flex flex-row justify-center items-center">
             <div className="text-base font-bold my-2 text-center mx-2">
-              Follow <div className="font-light"> {followPrice} wei</div>
+              Follow <div className="font-light"> {formatEther(followPrice)}  </div>
             </div>{" "}
             <div className="text-base font-bold my-2 text-center mx-2">
-              Like <div className="font-light"> {likePrice} wei</div>
+              Like <div className="font-light"> {formatEther(likePrice)}  </div>
             </div>{" "}
             <div className="text-base font-bold my-2 text-center mx-2">
-              Repost <div className="font-light"> {reTweetPrice} wei </div>
+              Repost <div className="font-light"> {formatEther(reTweetPrice)}   </div>
             </div>{" "}
           </div>
-
+          <div className="text-xl font-bold align-text-top items-start justify-start text-left w-full h-full mx-5 px-10">
+            <UsersIcon className=" w-8 h-8" />{''} <div className="font-base"> {followerCount} </div>
+          </div>{" "}
           {listTweet.map((tweet, index) => (
             // create a card for each tweet
             <div className="card card-body card-compact card-bordered w-full" key={index}>
