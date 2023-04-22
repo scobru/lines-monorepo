@@ -185,7 +185,7 @@ const Lines: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex items-center flex-col flex-grow min-w-full justify-center text-left mx-auto my-2">
+      <div className="flex items-center flex-col flex-grow min-w-full justify-center text-left mx-auto my-10">
         {line_length && line_price && (
           <div className="flex flex-row text-left">
             <div className="flex mx-5">
@@ -204,7 +204,7 @@ const Lines: NextPage = () => {
         )}
         <div className="flex-auto align-top my-5">
           <button
-            className="btn font-bold w-auto mx-2"
+            className="btn font-bold btn-primary w-auto mx-2"
             onClick={async () => {
               await get10LinesUnsorted();
             }}
@@ -212,10 +212,10 @@ const Lines: NextPage = () => {
             reset
           </button>
 
-          <label htmlFor="modal-post" className="btn font-bold w-auto mx-2 ">
+          <label htmlFor="modal-post" className="btn btn-primary font-bold w-auto mx-2 ">
             post
           </label>
-          <label htmlFor="modal-get" className="btn w-auto mx-2">
+          <label htmlFor="modal-get" className="btn btn-primary w-auto mx-2">
             goTo
           </label>
           {Number(pendingMatic) > 0 && (
@@ -328,7 +328,7 @@ const Lines: NextPage = () => {
                 </button>
                 <div>
                   {sortedLines ? (
-                    <table className="flex flex-col items-left w-full my-2 font-mono">
+                    <table className="flex flex-col items-left w-full my-2 font-medium">
                       {sortedLines.map((line, index) => (
                         <tr key={index}>
                           <td>{line.str}</td>
@@ -348,16 +348,16 @@ const Lines: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex-auto  w-full bg-transparent ">
+        <div className="flex-auto w-full bg-transparent">
           {unsortedLines ? (
-            <div className="flex flex-col overflow-y-scroll anchor h-96" id="anchor">
-              <table className="table-compact w-3/4 mx-auto ">
+            <div className="flex flex-col overflow-y-scroll anchor h-96 bg-base mx-10" id="anchor">
+              <table className="table-compact w-3/4 mx-auto  shadow-inner  font-proxima text-lg  ">
                 <tbody>
                   {unsortedLines.map(line => (
                     <tr key={line.uid}>
-                      <td className="text-sm font-mono">{Number(line.uid)}</td>
-                      <td className="text-sm font-mono">{Number(line.edits)} edits</td>
-                      <td className="text-sm font-mono">{line.str}</td>
+                      <td className="text-2xl font-base">{Number(line.uid)}</td>
+                      <td className="text-2xl font-base">{Number(line.edits)} edits</td>
+                      <td className="text-2xl font-base">{line.str}</td>
                     </tr>
                   ))}
                 </tbody>

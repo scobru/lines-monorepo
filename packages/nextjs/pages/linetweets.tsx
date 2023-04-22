@@ -150,8 +150,8 @@ const LineTweets: NextPage = () => {
                 <button className="btn btn-primary">⚙️ settings</button>
               </div>
             </div>
-            <div className="collapse-content">
-              <div className="card card-compact bg-primary p-5 shadow-lg shadow-black">
+            <div className="collapse-content items-center mx-auto my-5">
+              <div className="card card-compact bg-secondary p-5   justify-center ">
                 <input
                   className="border-2 border-gray-300 bg-gray-300 h-10 mx-auto px-5 py-2 rounded-lg focus:outline-none text-lg text-black"
                   type="text"
@@ -177,7 +177,7 @@ const LineTweets: NextPage = () => {
                   <input type="checkbox" id="modal" className="modal-toggle" />
                   <div className="modal">
                     <div className="modal-box flex flex-col">
-                      <div className="text-2xl font-bold my-5 text-center">Post</div>
+                      <div className="text-2xl font-bold my-5  text-center">Post</div>
                       <textarea
                         className="textarea border-2 border-gray-300 bg-gray-300 h-60 mx-auto px-5 rounded-lg focus:outline-none w-full text-lg text-black"
                         name="message"
@@ -200,10 +200,10 @@ const LineTweets: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <label htmlFor="modal" className="btn  btn-secondary rounded-lg font-bold w-1/4 mx-auto my-5  ">
+                <label htmlFor="modal" className="btn  btn-primary rounded-lg font-bold w-1/4 mx-auto my-5  ">
                   POST
                 </label>
-                <div className="flex flex-row justify-center items-center">
+                <div className="flex flex-row justify-center items-center text-base-content">
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Follow <div className="font-light"> {formatEther(followPrice)} </div>
                   </div>{" "}
@@ -222,7 +222,7 @@ const LineTweets: NextPage = () => {
           <div className="flex flex-row text-xl font-bold align-text-top items-start justify-start text-left h-full">
             <UsersIcon className="w-8 h-8" />
             {""} <div className="font-base"> {followerCount} </div>
-            <button className="btn btn-sm bg-primary text-base-content mx-5" onClick={getContractData}>
+            <button className="btn btn-sm bg-primary  mx-5" onClick={getContractData}>
               reset
             </button>
           </div>{" "}

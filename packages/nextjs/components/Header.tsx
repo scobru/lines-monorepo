@@ -88,7 +88,7 @@ export default function Header() {
           {/* <Link href="/" passHref className="flex relative w-10 h-10">
             <Image alt="scaffold-eth logo" className="cursor-pointer" fill src="/logo.svg" />
           </Link> */}
-          <div className="flex flex-col">
+          <div className="flex flex-col py-2">
             <span className="font-bold text-xl">▤ L I N E S</span>
             <span className="text-xs">Decentralized Open Board</span>
           </div>
