@@ -17,10 +17,6 @@ contract LineTweets {
   mapping(address => mapping(address => bool)) private followers;
   mapping(address => uint256) private followersCount;
 
-  // uint256 public constant FOLLOW_PRICE = 150;
-  // uint256 public constant LIKE_PRICE = 100;
-  // uint256 public constant RETWEET_PRICE = 250;
-
   uint256 public constant FOLLOW_PRICE = 0.0015 ether;
   uint256 public constant LIKE_PRICE = 0.001 ether;
   uint256 public constant RETWEET_PRICE = 0.0025 ether;

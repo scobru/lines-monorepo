@@ -8,7 +8,7 @@ const SwitchTheme = () => {
 
   useEffect(() => {
     const body = document.body;
-    body.setAttribute("data-theme", isDarkMode ? "black" : "garden");
+    body.setAttribute("data-theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
   return (

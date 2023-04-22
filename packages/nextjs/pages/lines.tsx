@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useEffect } from "react";
 import { useContract, useProvider, useNetwork, useSigner, useAccount } from "wagmi";
-
 import { getDeployedContract } from "../components/scaffold-eth/Contract/utilsContract";
 import { ContractInterface, Transaction } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
@@ -77,7 +76,6 @@ const Lines: NextPage = () => {
       edits += lines[0].edits;
     }
     return edits;
-
   }
 
   async function getPendingMatic() {
@@ -98,12 +96,14 @@ const Lines: NextPage = () => {
       return;
     }
 
-    const edits = await getEdits()
+    const edits = await getEdits();
     const value = edits * Number(formatEther(line_price));
 
     toast.info("Uploading Lines");
 
-    const lines: Transaction = await linesContract?.uploadLines(newLines, newUID, { value: parseEther(value.toString()) });
+    const lines: Transaction = await linesContract?.uploadLines(newLines, newUID, {
+      value: parseEther(value.toString()),
+    });
     toast.info("Waiting for transaction to be mined");
 
     while (!lines.hash) {
