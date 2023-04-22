@@ -185,21 +185,21 @@ const Lines: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex items-center flex-col flex-grow w-3/4 justify-center text-left mx-auto my-2">
+      <div className="flex items-center flex-col flex-grow min-w-full justify-center text-left mx-auto my-2">
         {line_length && line_price && (
-          <div className="flex flex-row text-left ">
-            {/* <div className="flex mx-5">
-              <div className="text-xl font-medium">LENGTH:</div>
-              <div className="text-xl">{Number(line_length)} </div>
+          <div className="flex flex-row text-left">
+            <div className="flex mx-5">
+              <div className="text-base font-medium">LENGTH:</div>
+              <div className="text-base">{Number(line_length)} </div>
             </div>
             <div className="flex mx-5">
-              <div className="text-xl font-medium">PRICE:</div>
-              <div className="text-xl mx-2">{formatEther(line_price)} MATIC</div>
-            </div> 
+              <div className="text-base font-medium">PRICE:</div>
+              <div className="text-base mx-2">{formatEther(line_price)} MATIC</div>
+            </div>
             <div className="flex mx-5 ">
               <div className="text-base font-medium">PENDING REWARD</div>
               <div className="text-base mx-2">{formatEther(pendingMatic)}</div>
-            </div>*/}
+            </div>
           </div>
         )}
         <div className="flex-auto align-top my-5">

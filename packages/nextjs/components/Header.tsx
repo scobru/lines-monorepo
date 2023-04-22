@@ -14,8 +14,9 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
     <Link
       href={href}
       passHref
-      className={`${isActive ? "bg-secondary" : ""
-        } hover:bg-secondary focus:bg-secondary py-2 px-4 text-sm font-bold rounded-full gap-2`}
+      className={`${
+        isActive ? "bg-secondary" : ""
+      } hover:bg-secondary focus:bg-secondary py-2 px-4 text-sm font-bold rounded-full gap-2`}
     >
       {children}
     </Link>
@@ -47,17 +48,15 @@ export default function Header() {
       <li>
         <NavLink href="/lines">
           <SparklesIcon className="h-4 w-4" />
-          LINES
+          <h1 className="text-base font-semibold my-0">Lines</h1>
         </NavLink>
       </li>
       <li>
         <NavLink href="/linetweets">
           <SparklesIcon className="h-4 w-4" />
-          LINETWEETS
+          <h1 className="text-base font-semibold my-0">LinesTweet</h1>{" "}
         </NavLink>
       </li>
-
-
     </>
   );
 
@@ -90,7 +89,7 @@ export default function Header() {
             <Image alt="scaffold-eth logo" className="cursor-pointer" fill src="/logo.svg" />
           </Link> */}
           <div className="flex flex-col">
-            <span className="font-bold">▤ L I N E S</span>
+            <span className="font-bold text-xl">▤ L I N E S</span>
             <span className="text-xs">Decentralized Open Board</span>
           </div>
         </div>

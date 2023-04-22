@@ -1,6 +1,5 @@
-import type { NextPage, } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
 
 const Home: NextPage = () => {
@@ -21,9 +20,8 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center mb-8">
-            <span className="block text-4xl font-bold">▤ L I N E S</span>
-            <span className="block text-2xl font-base">Open Board</span>
-            <Image width={200} height={200} src="/android-chrome-384x384.png" alt="Lines Logo" className="w-1/4 mx-auto my-5" />
+            <span className="block text-6xl font-bold">▤ L I N E S</span>
+            <span className="block text-3xl font-base">Open Board</span>
           </h1>
           <div className="prose">
             <h1 className="text-center mb-8 text-4xl font-bold">What is this?</h1>
@@ -45,8 +43,7 @@ const Home: NextPage = () => {
             <p className="text-center justify-self-center w-2/4 mx-auto mb-20 text-xl font-base">
               <h1 className="text-center text-2xl font-semibold">LINETWEETS</h1>
               <br />
-              Any time you like , create, repost, or follow an user,
-              a small amount of MATIC is transferred to the users
+              Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the users
               wallet.
             </p>
             <h1 className="text-center mb-8 text-4xl font-bold">Any Rules?</h1>
