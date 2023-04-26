@@ -10,6 +10,7 @@ import { HeartIcon, ArrowPathIcon, UserPlusIcon, UsersIcon } from "@heroicons/re
 import { formatEther } from "ethers/lib/utils.js";
 import Address from "../components/scaffold-eth/Address";
 import { useRouter } from "next/router";
+import { TwitterApi } from "twitter-api-v2";
 
 const LineTweets: NextPage = () => {
   // Define Tweet type
@@ -35,6 +36,7 @@ const LineTweets: NextPage = () => {
   const [userSearch, setUserSearch] = React.useState("");
   const deployedContract = getDeployedContract(chain?.id.toString(), "LineTweets");
   const [followerCount, setFollowerCount] = React.useState(0);
+  const [twitterUser, setTwitterUser] = React.useState("");
   let ctxAddress!: string;
   let ctxAbi: ContractInterface = [];
 
@@ -141,38 +143,17 @@ const LineTweets: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex justify-around mt-12 flex-col  w-3/4 mx-auto">
+      <div className="flex justify-around mt-12 flex-col text-center w-3/4 mx-auto">
         <div>
           <div className="collapse">
             <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium">
-              <div className="text-2xl font-bold my-5 text-center">
+            <div className="collapse-title text-xl font-medium text-center">
+              <div className="text-2xl font-bold  ">
                 <button className="btn btn-primary">⚙️ settings</button>
               </div>
             </div>
-            <div className="collapse-content items-center mx-auto my-5">
-              <div className="card card-compact bg-secondary p-5   justify-center ">
-                <input
-                  className="border-2 border-gray-300 bg-gray-300 h-10 mx-auto px-5 py-2 rounded-lg focus:outline-none text-lg text-black"
-                  type="text"
-                  name="userSearch"
-                  placeholder="Search for a user"
-                  value={userSearch}
-                  onChange={e => setUserSearch(e.target.value)}
-                />
-                <button
-                  className="bg-gray-500 hover:bg-gray-700 text-white font-bold my-5  py-2 px-5 rounded "
-                  onClick={() => getAllTweetsForUser(userSearch)}
-                  disabled={userSearch == ""}
-                >
-                  search
-                </button>
-                <button
-                  className="bg-gray-500 hover:bg-gray-700 text-white font-bold my-5 py-2 px-5 rounded "
-                  onClick={getContractData}
-                >
-                  Reset
-                </button>
+            <div className="collapse-content items-center mx-auto ">
+              <div className="card card-compact bg-secondary p-5 text-center mx-auto ">
                 <div className="flex flex-col w-full">
                   <input type="checkbox" id="modal" className="modal-toggle" />
                   <div className="modal">
@@ -200,9 +181,23 @@ const LineTweets: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <label htmlFor="modal" className="btn  btn-primary rounded-lg font-bold w-1/4 mx-auto my-5  ">
+                <label htmlFor="modal" className="btn  btn-primary rounded-lg font-bold w-2/4 mx-auto m-5  ">
                   POST
                 </label>
+                <input
+                  className="border-2 border-gray-300 bg-gray-300 h-10 mx-auto px-5 py-2 rounded-lg focus:outline-none text-lg text-black m-2"
+                  type="text"
+                  name="userSearch"
+                  placeholder="Search for a user"
+                  onChange={e => setUserSearch(e.target.value)}
+                />
+                <button
+                  className="btn btn-sm bg-primary   "
+                  onClick={async () => await getAllTweetsForUser(userSearch)}
+                  disabled={userSearch == ""}
+                >
+                  search
+                </button>
                 <div className="flex flex-row justify-center items-center text-base-content">
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Follow <div className="font-light"> {formatEther(followPrice)} </div>
@@ -218,17 +213,23 @@ const LineTweets: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-left w-full text-left">
-          <div className="flex flex-row text-xl font-bold align-text-top items-start justify-start text-left h-full">
-            <UsersIcon className="w-8 h-8" />
+        <div className="flex flex-col justify-center items-left sm:w-full md:w-3/4 md:mx-auto text-left">
+          <div className="flex flex-row text-xl font-bold  align-text-top items-start justify-start text-left h-full">
+            <UsersIcon className="w-5 h-5 " />
             {""} <div className="font-base"> {followerCount} </div>
-            <button className="btn btn-sm bg-primary  mx-5" onClick={getContractData}>
-              reset
+            <button
+              className="btn btn-sm text-neutral bg-primary mx-5 "
+              onClick={() => {
+                getContractData();
+                router.push("linetweets");
+              }}
+            >
+              Reset
             </button>
           </div>{" "}
           {listTweet.map((tweet, index) => (
-            <div className="card card-compact card-bordered w-full my-5" key={index}>
-              <div className="border-2 border-accent min-w-fit bg-base-300">
+            <div className="card card-compact   sm:w-full md:w-3/4 md:mx-auto my-5" key={index}>
+              <div className="border-2  min-w-fit bg-base-300 rounded-md hover:bg-secondary-focus">
                 <div className="flex flex-row">
                   <button
                     className="card-title mx-4 text-base-content text-xl hover:font-bold hover:text-gray-500 justify-start  text-left "
@@ -248,7 +249,7 @@ const LineTweets: NextPage = () => {
                   </div>{" "}
                 </div>
                 <div className="flex flex-col">
-                  <div className="card-title text-base font-mono mx-4">
+                  <div className="card-title text-lg font-normal mx-4">
                     <p>{tweet.message}</p>
                   </div>
                 </div>

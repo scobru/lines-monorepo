@@ -347,10 +347,11 @@ const Lines: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col overflow-x-scroll overflow-y-scroll w-3/4">
+
+        <div className="flex  w-screen overflow-auto   ">
           {unsortedLines ? (
-            <div className="anchor h-96 bg-base overscroll-x-auto w-5/6" id="anchor">
-              <table className="table table-compact w-screen">
+            <div className="anchor text-center bg-base mx-auto " id="anchor">
+              <table className="flex table table-compact w-min">
                 <tbody>
                   {unsortedLines.map(line => (
                     <tr key={line.uid}>

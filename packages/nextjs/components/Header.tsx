@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { Faucet } from "~~/components/scaffold-eth";
 import RainbowKitCustomConnectButton from "~~/components/scaffold-eth/RainbowKitCustomConnectButton";
-import { Bars3Icon, SparklesIcon } from "@heroicons/react/24/outline";
+import { PencilSquareIcon, Bars4Icon, DocumentIcon, Bars3Icon, HomeIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -37,7 +37,10 @@ export default function Header() {
   const navLinks = (
     <>
       <li>
-        <NavLink href="/">HOME</NavLink>
+        <NavLink href="/">
+          {" "}
+          <HomeIcon className="h-4 w-4" />
+        </NavLink>
       </li>
       {/* <li>
         <NavLink href="/debug">
@@ -47,18 +50,19 @@ export default function Header() {
       </li> */}
       <li>
         <NavLink href="/lines">
-          <SparklesIcon className="h-4 w-4" />
+          <PencilSquareIcon className="h-4 w-4" />
           <h1 className="text-base font-semibold my-0">Lines</h1>
         </NavLink>
       </li>
       <li>
         <NavLink href="/linetweets">
-          <SparklesIcon className="h-4 w-4" />
+          <Bars4Icon className="h-4 w-4" />
           <h1 className="text-base font-semibold my-0">LinesTweet</h1>{" "}
         </NavLink>
       </li>
       <li>
         <NavLink href="https://scobru.gitbook.io/lines/">
+          <DocumentIcon className="h-4 w-4" />
           <h1 className="text-base font-semibold my-0">Docs</h1>
         </NavLink>
       </li>

@@ -26,4 +26,8 @@ p {
 .scrollDark {
   scrollbar-color: dark;
   overflow-anchor: auto;
+  scrollbar-width: thin;
+  border-radius: 14px;
+  border-radius: 5px;
+  width: 15px;
 }
