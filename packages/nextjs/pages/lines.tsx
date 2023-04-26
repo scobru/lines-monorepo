@@ -185,18 +185,18 @@ const Lines: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex items-center flex-col flex-grow min-w-full justify-center text-left mx-auto my-10">
+      <div className="flex items-center flex-col w-full text-left">
         {line_length && line_price && (
-          <div className="flex flex-row text-left">
-            <div className="flex mx-5">
+          <div className="flex flex-row text-left my-10">
+            <div className="flex ">
               <div className="text-base font-medium">LENGTH:</div>
               <div className="text-base">{Number(line_length)} </div>
             </div>
-            <div className="flex mx-5">
+            <div className="flex ">
               <div className="text-base font-medium">PRICE:</div>
               <div className="text-base mx-2">{formatEther(line_price)} MATIC</div>
             </div>
-            <div className="flex mx-5 ">
+            <div className="flex">
               <div className="text-base font-medium">PENDING REWARD</div>
               <div className="text-base mx-2">{formatEther(pendingMatic)}</div>
             </div>
@@ -211,7 +211,6 @@ const Lines: NextPage = () => {
           >
             reset
           </button>
-
           <label htmlFor="modal-post" className="btn btn-primary font-bold w-auto mx-2 ">
             post
           </label>
@@ -348,23 +347,23 @@ const Lines: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex-auto w-full bg-transparent">
+        <div className="flex flex-col overflow-x-scroll overflow-y-scroll w-3/4">
           {unsortedLines ? (
-            <div className="flex flex-col overflow-y-scroll anchor h-96 bg-base mx-10" id="anchor">
-              <table className="table-compact w-3/4 mx-auto  shadow-inner  font-proxima text-lg  ">
+            <div className="anchor h-96 bg-base overscroll-x-auto w-5/6" id="anchor">
+              <table className="table table-compact w-screen">
                 <tbody>
                   {unsortedLines.map(line => (
                     <tr key={line.uid}>
-                      <td className="text-2xl font-base">{Number(line.uid)}</td>
-                      <td className="text-2xl font-base">{Number(line.edits)} edits</td>
-                      <td className="text-2xl font-base">{line.str}</td>
+                      <td className="text-lg font-base">{Number(line.uid)}</td>
+                      <td className="text-lg font-base">{Number(line.edits)} edits</td>
+                      <td className="text-lg font-base">{line.str}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center w-full">null</div>
+            <div className="items-center justify-center w-full">null</div>
           )}
         </div>
         <button

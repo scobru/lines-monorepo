@@ -141,8 +141,8 @@ const LineTweets: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex mx-auto flex-col  w-3/4 justify-center text-center items-center">
-        <div className="flex flex-grow justify-center">
+      <div className="flex justify-around mt-12 flex-col  w-3/4 mx-auto">
+        <div>
           <div className="collapse">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">

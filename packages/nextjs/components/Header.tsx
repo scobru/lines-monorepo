@@ -57,6 +57,11 @@ export default function Header() {
           <h1 className="text-base font-semibold my-0">LinesTweet</h1>{" "}
         </NavLink>
       </li>
+      <li>
+        <NavLink href="https://scobru.gitbook.io/lines/">
+          <h1 className="text-base font-semibold my-0">Docs</h1>
+        </NavLink>
+      </li>
     </>
   );
 

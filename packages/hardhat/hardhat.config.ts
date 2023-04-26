@@ -11,6 +11,7 @@ const providerApiKey = process.env.ALCHEMY_API_KEY ?? "oKxs-03sij-U_N0iOlrSsZFr2
 // If not set, it uses the hardhat account 0 private key.
 const deployerPrivateKey =
   process.env.DEPLOYER_PRIVATE_KEY ?? "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW";
 
 const config: HardhatUserConfig = {
   defaultNetwork: "localhost",
@@ -57,11 +58,9 @@ const config: HardhatUserConfig = {
     },
   },
 
-  etherscan: {
-    apiKey: {
-      polygon: String(process.env.POLYGONSCAN_API_KEY),
-      optimisticEthereum: "YOUR_OPTIMISTIC_ETHERSCAN_API_KEY",
-      arbitrumOne: "YOUR_ARBISCAN_API_KEY",
+  verify: {
+    etherscan: {
+      apiKey: `${etherscanApiKey}`,
     },
   },
 
