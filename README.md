@@ -146,4 +146,3 @@ If you want to redeploy to the same production URL you can run `yarn vercel --pr
 
 We welcome contributions to Lines !
 
-Please see [CONTRIBUTING.MD](https://github.com/scobru/lines-monorepo/blob/master/CONTRIBUTING.md) for more information and guidelines for contributing to Lines .
