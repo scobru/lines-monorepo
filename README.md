@@ -1,7 +1,3 @@
----
-description: Decentralized Open Board
----
-
 # Lines ▤
 
 > ⚠️ This project is currently under active development. Things might break. Feel free to check the open issues & create new ones.
@@ -29,13 +25,20 @@ Creation of new lines is free. Each modification of a line increases the cost fo
 
 Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the  post creator. The more followers you have, the more you earn.
 
+If your content is reported by more than 10 users, your tweet will be deleted.
+
 ```
 FOLLOW_PRICE = 0.0015;
 LIKE_PRICE = 0.001;
 RETWEET_PRICE = 0.0025;
+REPORT_PRICE = 0.005;
 ```
 
 ***
+
+***
+
+{% embed url="https://linesapp.vercel.app/linetweets?id=0xb542E27732a390f509fD1FF6844a8386fe320f7f" %}
 
 ## **📖 Any Rules?**
 
@@ -47,8 +50,18 @@ You are free to write whatever you like. The Wall will never be moderated. We be
 
 Polygon Mainnet
 
-* Lines v1 : 0x31215c9C7fa6241765547F0b13e5A21d229C5168.
-* LineTweets v1 : 0x85044CDDA4f445E605888BEf29Ad137c3317f0B1
+*   Lines v1 :&#x20;
+
+    ```json
+    0x31215c9C7fa6241765547F0b13e5A21d229C5168
+    ```
+
+    .
+*   LineTweets v1 :&#x20;
+
+    ```json
+    0x9bBA65Eeb7AA44380659B8bA28901b34211ce685
+    ```
 
 ***
 
