@@ -27,7 +27,7 @@ Creation of new lines is free. Each modification of a line increases the cost fo
 
 ### **Line Tweets**
 
-Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the user's wallet. The more followers you have, the more you earn.
+Any time you like , create, repost, or follow an user, a small amount of MATIC is transferred to the  post creator. The more followers you have, the more you earn.
 
 ```
 FOLLOW_PRICE = 0.0015;
