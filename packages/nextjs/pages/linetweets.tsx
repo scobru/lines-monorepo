@@ -5,7 +5,7 @@ import { useContract, useProvider, useNetwork, useSigner, useAccount } from "wag
 import { getDeployedContract } from "../components/scaffold-eth/Contract/utilsContract";
 import { ContractInterface } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
-import { HeartIcon, ArrowPathIcon, UserPlusIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { HeartIcon, ArrowPathIcon, BugAntIcon, UsersIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import { formatEther } from "ethers/lib/utils.js";
 import Address from "../components/scaffold-eth/Address";
 import { useRouter } from "next/router";
@@ -18,6 +18,7 @@ const LineTweets: NextPage = () => {
     likes: number;
     retweets: string;
     createdAt: number;
+    report: number;
   };
 
   const { chain } = useNetwork();
@@ -31,8 +32,11 @@ const LineTweets: NextPage = () => {
   const [listTweet, setListTweet] = React.useState<Tweet[]>([]);
   const [message, setMessage] = React.useState("");
   const [userSearch, setUserSearch] = React.useState("");
+  const [reportPrice, setReportPrice] = React.useState(0);
+
   const deployedContract = getDeployedContract(chain?.id.toString(), "LineTweets");
   const [followerCount, setFollowerCount] = React.useState(0);
+
   let ctxAddress!: string;
   let ctxAbi: ContractInterface = [];
 
@@ -55,6 +59,8 @@ const LineTweets: NextPage = () => {
       const likePrice = await ctx.LIKE_PRICE();
       const reTweetPrice = await ctx.RETWEET_PRICE();
       const tweetList: Tweet[] = await ctx?.getTweets();
+      const reportPrice = await ctx?.REPORT_PRICE();
+      setReportPrice(Number(reportPrice));
       setFollowPrice(Number(followPrice));
       setLikePrice(Number(likePrice));
       setReTweetPrice(Number(reTweetPrice));
@@ -80,6 +86,8 @@ const LineTweets: NextPage = () => {
       const tweetList: Tweet[] = await ctx?.getTweets();
       const len = tweetList.length;
       const tweetList2: Tweet[] = await ctx?.getTweetsOf(user, len);
+      // order
+
       setListTweet(tweetList2);
     }
   };
@@ -113,6 +121,15 @@ const LineTweets: NextPage = () => {
       toast.info("Retweeting...");
       await tx.wait();
       toast.success("Retweeted!");
+    }
+  };
+
+  const reportTweet = async function reportTweet(id: number) {
+    if (ctx && account && reportPrice) {
+      const tx = await ctx.reportTweet(id, { value: reportPrice });
+      toast.info("Reporting...");
+      await tx.wait();
+      toast.success("Reported!");
     }
   };
 
@@ -204,6 +221,9 @@ const LineTweets: NextPage = () => {
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Repost <div className="font-light"> {formatEther(reTweetPrice)} </div>
                   </div>{" "}
+                  <div className="text-base font-bold my-2 text-center mx-2">
+                    Report <div className="font-light"> {formatEther(reportPrice)} </div>
+                  </div>{" "}
                 </div>
               </div>
             </div>
@@ -260,6 +280,10 @@ const LineTweets: NextPage = () => {
                   </button>
                   <button className="flex flex-row items-center mx-3" onClick={() => follow(tweet.author)}>
                     <UserPlusIcon className="h-5 w-5 text-red-500" />
+                  </button>
+                  <button className="flex flex-row items-center mx-3" onClick={() => reportTweet(tweet.id)}>
+                    <BugAntIcon className="h-5 w-5 text-red-500" />
+                    <p className="ml-1">{Number(tweet.report)} </p>
                   </button>
                 </div>
               </div>

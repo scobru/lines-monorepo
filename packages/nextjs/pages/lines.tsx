@@ -190,7 +190,7 @@ const Lines: NextPage = () => {
           <div className="flex flex-row text-left mx-2">
             <div className="flex ">
               <div className="text-base font-medium">LENGTH:</div>
-              <div className="text-base">{Number(line_length)} </div>
+              <div className="text-base mx-2">{Number(line_length)} </div>
             </div>
             <div className="flex ">
               <div className="text-base font-medium">PRICE:</div>

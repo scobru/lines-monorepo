@@ -5,7 +5,7 @@
       "chainId": "137",
       "contracts": {
         "LineTweets": {
-          "address": "0x3ad99be5cE18945C824E0B004942d681bc131f44",
+          "address": "0x9bBA65Eeb7AA44380659B8bA28901b34211ce685",
           "abi": [
             {
               "inputs": [],
@@ -59,6 +59,19 @@
             {
               "inputs": [],
               "name": "LIKE_PRICE",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "REPORT_PRICE",
               "outputs": [
                 {
                   "internalType": "uint256",
@@ -160,6 +173,11 @@
                     },
                     {
                       "internalType": "uint256",
+                      "name": "report",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
                       "name": "createdAt",
                       "type": "uint256"
                     }
@@ -216,6 +234,11 @@
                     },
                     {
                       "internalType": "uint256",
+                      "name": "report",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
                       "name": "createdAt",
                       "type": "uint256"
                     }
@@ -256,6 +279,19 @@
                 }
               ],
               "name": "like",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_tweetId",
+                  "type": "uint256"
+                }
+              ],
+              "name": "reportTweet",
               "outputs": [],
               "stateMutability": "payable",
               "type": "function"

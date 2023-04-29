@@ -9,6 +9,7 @@ contract LineTweets {
     string message;
     uint256 likes;
     uint256 retweets;
+    uint256 report;
     uint256 createdAt;
   }
 
@@ -21,6 +22,7 @@ contract LineTweets {
   uint256 public constant FOLLOW_PRICE = 0.0015 ether;
   uint256 public constant LIKE_PRICE = 0.001 ether;
   uint256 public constant RETWEET_PRICE = 0.0025 ether;
+  uint256 public constant REPORT_PRICE = 0.005 ether;
 
   address public treasury;
 
@@ -36,7 +38,8 @@ contract LineTweets {
   }
 
   function tweet(string calldata message) external payable {
-    tweets[nextTweetId] = Tweet(nextTweetId, payable(msg.sender), message, 0, 0, block.timestamp);
+    tweets[nextTweetId] = Tweet(nextTweetId, payable(msg.sender), message, 0, 0, block.timestamp, 0);
+
     tweetsOf[msg.sender].push(nextTweetId);
     emit TweetSent(nextTweetId, msg.sender, message, block.timestamp);
     nextTweetId++;
@@ -74,7 +77,7 @@ contract LineTweets {
     uint256 index = 0;
     for (uint256 i = 1; i < nextTweetId; i++) {
       Tweet storage t = tweets[i];
-      _tweets[index++] = Tweet(t.id, t.author, t.message, t.likes, t.retweets, t.createdAt);
+      _tweets[index++] = Tweet(t.id, t.author, t.message, t.likes, t.retweets, t.createdAt, t.report);
     }
     return _tweets;
   }
@@ -85,7 +88,15 @@ contract LineTweets {
     Tweet[] memory _tweets = new Tweet[](count);
     for (uint256 index = tweetIds.length - count; index < tweetIds.length; index++) {
       Tweet storage t = tweets[tweetIds[index]];
-      _tweets[index - (tweetIds.length - count)] = Tweet(t.id, t.author, t.message, t.likes, t.retweets, t.createdAt);
+      _tweets[index - (tweetIds.length - count)] = Tweet(
+        t.id,
+        t.author,
+        t.message,
+        t.likes,
+        t.retweets,
+        t.createdAt,
+        t.report
+      );
     }
     return _tweets;
   }
@@ -96,5 +107,22 @@ contract LineTweets {
 
   function getFollowersCount(address _followed) external view returns (uint256) {
     return followersCount[_followed];
+  }
+
+  function reportTweet(uint256 _tweetId) external payable {
+    require(msg.value == REPORT_PRICE, "must send 500 wei to report");
+    tweets[_tweetId].report++;
+    payable(treasury).transfer(msg.value);
+    if (tweets[_tweetId].report >= 10) {
+      // delete tweet and pop from tweetsOf
+      delete tweets[_tweetId];
+      uint256[] storage tweetIds = tweetsOf[msg.sender];
+      for (uint256 i = 0; i < tweetIds.length; i++) {
+        if (tweetIds[i] == _tweetId) {
+          delete tweetIds[i];
+          break;
+        }
+      }
+    }
   }
 }
