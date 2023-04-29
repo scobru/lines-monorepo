@@ -71,7 +71,7 @@ export default function Address({
       <div className="flex-shrink-0">
         <Blockies
           className="mx-auto rounded-md"
-          size={5}
+          size={8}
           seed={address.toLowerCase()}
           scale={fontSize ? fontSize / 7 : 4}
         />

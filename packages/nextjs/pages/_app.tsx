@@ -4,20 +4,17 @@ import type { AppProps } from "next/app";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiConfig } from "wagmi";
 import { Toaster } from "react-hot-toast";
-
 import "@rainbow-me/rainbowkit/styles.css";
 import { appChains } from "~~/services/web3/wagmiConnectors";
 import { wagmiClient } from "~~/services/web3/wagmiClient";
 import Header from "~~/components/Header";
 import Footer from "~~/components/Footer";
-
 import { useEffect } from "react";
 import { useAppStore } from "~~/services/store/store";
 import { useEthPrice } from "~~/hooks/scaffold-eth";
-
 import NextNProgress from "nextjs-progressbar";
 
-const ScaffoldEthApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
+const ScaffoldEthApp = ({ Component, pageProps: { ...pageProps } }: AppProps) => {
   const price = useEthPrice();
   const setEthPrice = useAppStore(state => state.ethPriceSlice.setEthPrice);
 

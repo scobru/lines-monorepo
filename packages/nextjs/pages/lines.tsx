@@ -185,9 +185,9 @@ const Lines: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex items-center flex-col w-full text-left">
+      <div className="flex items-center flex-col w-full text-left my-20">
         {line_length && line_price && (
-          <div className="flex flex-row text-left my-10">
+          <div className="flex flex-row text-left mx-2">
             <div className="flex ">
               <div className="text-base font-medium">LENGTH:</div>
               <div className="text-base">{Number(line_length)} </div>
@@ -202,7 +202,7 @@ const Lines: NextPage = () => {
             </div>
           </div>
         )}
-        <div className="flex-auto align-top my-5">
+        <div className="flex-auto align-top mb-20 mt-10">
           <button
             className="btn font-bold btn-primary w-auto mx-2"
             onClick={async () => {
@@ -348,16 +348,16 @@ const Lines: NextPage = () => {
           </div>
         </div>
 
-        <div className="flex  w-screen overflow-auto   ">
+        <div className="flex w-full overflow-auto   ">
           {unsortedLines ? (
-            <div className="anchor text-center bg-base mx-auto " id="anchor">
-              <table className="flex table table-compact w-min">
+            <div className="anchor text-center mx-auto" id="anchor">
+              <table className="flex  table-compact text-left">
                 <tbody>
                   {unsortedLines.map(line => (
                     <tr key={line.uid}>
-                      <td className="text-lg font-base">{Number(line.uid)}</td>
-                      <td className="text-lg font-base">{Number(line.edits)} edits</td>
-                      <td className="text-lg font-base">{line.str}</td>
+                      <td className="text-lg font-base">✔️ {Number(line.uid)} </td>
+                      <td className="text-lg font-normal">📌 edits: {Number(line.edits)}</td>
+                      <td className="text-lg font-medium">{line.str}</td>
                     </tr>
                   ))}
                 </tbody>

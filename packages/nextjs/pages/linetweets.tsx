@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useEffect } from "react";
 import { useContract, useProvider, useNetwork, useSigner, useAccount } from "wagmi";
-
 import { getDeployedContract } from "../components/scaffold-eth/Contract/utilsContract";
 import { ContractInterface } from "ethers";
 import { toast } from "~~/utils/scaffold-eth";
@@ -10,10 +9,8 @@ import { HeartIcon, ArrowPathIcon, UserPlusIcon, UsersIcon } from "@heroicons/re
 import { formatEther } from "ethers/lib/utils.js";
 import Address from "../components/scaffold-eth/Address";
 import { useRouter } from "next/router";
-import { TwitterApi } from "twitter-api-v2";
 
 const LineTweets: NextPage = () => {
-  // Define Tweet type
   type Tweet = {
     id: number;
     author: string;
@@ -36,7 +33,6 @@ const LineTweets: NextPage = () => {
   const [userSearch, setUserSearch] = React.useState("");
   const deployedContract = getDeployedContract(chain?.id.toString(), "LineTweets");
   const [followerCount, setFollowerCount] = React.useState(0);
-  const [twitterUser, setTwitterUser] = React.useState("");
   let ctxAddress!: string;
   let ctxAbi: ContractInterface = [];
 
@@ -149,7 +145,7 @@ const LineTweets: NextPage = () => {
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium text-center">
               <div className="text-2xl font-bold  ">
-                <button className="btn btn-primary">⚙️ settings</button>
+                <button className="btn btn-primary">post</button>
               </div>
             </div>
             <div className="collapse-content items-center mx-auto ">
@@ -182,7 +178,7 @@ const LineTweets: NextPage = () => {
                   </div>
                 </div>
                 <label htmlFor="modal" className="btn  btn-primary rounded-lg font-bold w-2/4 mx-auto m-5  ">
-                  POST
+                  create
                 </label>
                 <input
                   className="border-2 border-gray-300 bg-gray-300 h-10 mx-auto px-5 py-2 rounded-lg focus:outline-none text-lg text-black m-2"
@@ -213,8 +209,8 @@ const LineTweets: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-left sm:w-full md:w-3/4 md:mx-auto text-left">
-          <div className="flex flex-row text-xl font-bold  align-text-top items-start justify-start text-left h-full">
+        <div className="flex flex-col justify-center items-left sm:w-full md:w-3/4 md:mx-auto text-left mt-10 mb-20">
+          <div className="flex flex-row text-xl font-bold  align-text-top items-start justify-start text-left h-full mt-10 mb-20">
             <UsersIcon className="w-5 h-5 " />
             {""} <div className="font-base"> {followerCount} </div>
             <button
@@ -228,8 +224,8 @@ const LineTweets: NextPage = () => {
             </button>
           </div>{" "}
           {listTweet.map((tweet, index) => (
-            <div className="card card-compact   sm:w-full md:w-3/4 md:mx-auto my-5" key={index}>
-              <div className="border-2  min-w-fit bg-base-300 rounded-md hover:bg-secondary-focus">
+            <div className="card card-compact sm:w-full md:w-3/4 md:mx-auto" key={index}>
+              <div className="border-1 min-w-fit bg-base-300 rounded-md hover:bg-secondary-focus my-2">
                 <div className="flex flex-row">
                   <button
                     className="card-title mx-4 text-base-content text-xl hover:font-bold hover:text-gray-500 justify-start  text-left "
@@ -249,7 +245,7 @@ const LineTweets: NextPage = () => {
                   </div>{" "}
                 </div>
                 <div className="flex flex-col">
-                  <div className="card-title text-lg font-normal mx-4">
+                  <div className="card-title text-lg font-semibold mx-4">
                     <p>{tweet.message}</p>
                   </div>
                 </div>
