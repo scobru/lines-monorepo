@@ -347,7 +347,6 @@ const Lines: NextPage = () => {
             </div>
           </div>
         </div>
-
         <div className="flex w-full overflow-auto   ">
           {unsortedLines ? (
             <div className="anchor text-center mx-auto" id="anchor">

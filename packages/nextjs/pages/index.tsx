@@ -15,10 +15,10 @@ const Home: NextPage = () => {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className="flex flex-col items-center justify-center h-screen  bg-[url('../assets/background.jpg')] bg-cover bg-opacity-80">
-        <div className="max-w-2xl px-6 py-20 text-center text-white">
-          <h1 className="mb-10 text-8xl font-bold uppercase">▤ L I N E S</h1>
-          <p className="mt-4 text-5xl font-medium">Record your thoughts, ideas, and feelings on the blockchain.</p>
+      <div className="flex flex-col items-center justify-center h-screen bg-opacity-80">
+        <div className="max-w-2xl px-6 py-10 text-center text-white">
+          <h1 className="mb-10 text-6xl font-bold uppercase">▤ L I N E S</h1>
+          <p className="mt-4 text-lg font-medium">Record your thoughts, ideas, and feelings on the blockchain.</p>
           <p className="mt-8 text-3xl font-medium">Free, uncensored, and forever.</p>
           {/*           <img src="https://picsum.photos/1200/600" alt="Random image" className="mx-auto mt-10 rounded-lg shadow-xl" />
            */}{" "}

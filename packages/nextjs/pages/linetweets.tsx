@@ -248,7 +248,7 @@ const LineTweets: NextPage = () => {
               <div className="border-1 min-w-fit bg-base-300 rounded-md hover:bg-secondary-focus my-2">
                 <div className="flex flex-row">
                   <button
-                    className="card-title mx-4 text-base-content text-xl hover:font-bold hover:text-gray-500 justify-start  text-left "
+                    className="card-title mx-2 text-base-content text-xl hover:font-bold hover:text-gray-500 justify-start  text-left "
                     onClick={() => {
                       getAllTweetsForUser(tweet.author);
                       router.push("linetweets?id=" + tweet.author);
@@ -265,7 +265,7 @@ const LineTweets: NextPage = () => {
                   </div>{" "}
                 </div>
                 <div className="flex flex-col">
-                  <div className="card-title text-lg font-semibold mx-4">
+                  <div className="text-2xl font-semibold mx-4 break-all">
                     <p>{tweet.message}</p>
                   </div>
                 </div>
