@@ -5743,13 +5743,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cyber-punk-text@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "cyber-punk-text@npm:1.0.3"
-  checksum: 9692d9a1126e164f56bbe67cbde1b9624ebde5f5e4286bdfc1eac0fa9e044326960b74b702c0ed3ac60821a4ed873a8da4f0c920d61510b61851270357dff772
-  languageName: node
-  linkType: hard
-
 "d@npm:1, d@npm:^1.0.1":
   version: 1.0.1
   resolution: "d@npm:1.0.1"
@@ -10328,11 +10321,8 @@ __metadata:
     "@types/crypto-js": ^4
     axios: ^1.3.6
     crypto-js: ^4.1.1
-    cyber-punk-text: ^1.0.3
     husky: ^8.0.1
     lint-staged: ^13.1.2
-    twitter-api-v2: ^1.14.2
-    twitter-lite: ^1.1.0
   languageName: unknown
   linkType: soft
 
@@ -15400,13 +15390,6 @@ __metadata:
     abort-controller: ^3.0.0
     node-fetch: ^2.6.1
   checksum: e93157808725f3affb3de0d963a118ea418bb93345875ba6d360f891c889c3a65f70038d5d3c561bba140c3b202bb255af417ef698868b41d54a4ee9ff81437d
-  languageName: node
-  linkType: hard
-
-"twitter-api-v2@npm:^1.14.2":
-  version: 1.14.2
-  resolution: "twitter-api-v2@npm:1.14.2"
-  checksum: e9bd9cc58f2b834df32f971b60fa338c8e38b2db2e4b4d3eb31dc34f92782e89a5f530bfa369aa38ae88da9d66ed0e754bd47a7e4a1b0393075980fd12d31eb7
   languageName: node
   linkType: hard
 

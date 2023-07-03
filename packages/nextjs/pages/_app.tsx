@@ -30,7 +30,7 @@ const ScaffoldEthApp = ({ Component, pageProps: { ...pageProps } }: AppProps) =>
       <RainbowKitProvider chains={appChains.chains}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex flex-col flex-1">
+          <main className="flex flex-col flex-1 ">
             <Component {...pageProps} />
           </main>
           <Footer />

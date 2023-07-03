@@ -156,17 +156,17 @@ const LineTweets: NextPage = () => {
         <title>L I N E S</title>
         <meta name="description" content="Lines Open Board" />
       </Head>
-      <div className="flex justify-around mt-12 flex-col text-center w-3/4 mx-auto">
-        <div>
+      <div className="flex justify-around mt-12 flex-col text-center ">
+        <div className="">
           <div className="collapse">
             <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium text-center">
-              <div className="text-2xl font-bold  ">
-                <button className="btn btn-primary">post</button>
+            <div className="collapse-title text-xl font-medium text-center mx-auto items-center">
+              <div className="text-2xl font-bold   ">
+                <button className="btn btn-primary text-center ">post</button>
               </div>
             </div>
             <div className="collapse-content items-center mx-auto ">
-              <div className="card card-compact bg-secondary p-5 text-center mx-auto ">
+              <div className="card card-compact bg-secondary p-2 text-center w-full ">
                 <div className="flex flex-col w-full">
                   <input type="checkbox" id="modal" className="modal-toggle" />
                   <div className="modal">
@@ -194,7 +194,7 @@ const LineTweets: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <label htmlFor="modal" className="btn  btn-primary rounded-lg font-bold w-2/4 mx-auto m-5  ">
+                <label htmlFor="modal" className="btn  btn-primary bg-primary rounded-lg font-bold w-2/4 mx-auto m-5  ">
                   create
                 </label>
                 <input
@@ -211,7 +211,7 @@ const LineTweets: NextPage = () => {
                 >
                   search
                 </button>
-                <div className="flex flex-row justify-center items-center text-base-content">
+                <div className="flex flex-row justify-center items-center ">
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Follow <div className="font-light"> {formatEther(followPrice)} </div>
                   </div>{" "}
