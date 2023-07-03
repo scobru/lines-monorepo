@@ -14,7 +14,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
     <Link
       href={href}
       passHref
-      className={`${isActive ? "bg-secondary" : ""
+      className={`${isActive ? "bg-secondary shadow-md" : ""
         } hover:bg-secondary focus:bg-secondary py-2 px-4 text-sm font-bold rounded-full focus:text-black text-gray-400 gap-2`}
     >
       {children}

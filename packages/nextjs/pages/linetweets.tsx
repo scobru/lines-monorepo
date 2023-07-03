@@ -157,21 +157,21 @@ const LineTweets: NextPage = () => {
         <meta name="description" content="Lines Open Board" />
       </Head>
       <div className="flex justify-around mt-12 flex-col text-center ">
-        <div className="flex justify-center items-center h-screen">
+        <div className="">
           <div className="collapse">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium text-center mx-auto items-center">
-              <div className="text-2xl font-bold mx-auto">
-                <button className="btn btn-primary mx-auto">post</button>
+              <div className="text-2xl font-bold   ">
+                <button className="btn btn-primary text-center ">post</button>
               </div>
             </div>
-            <div className="collapse-content items-center mx-auto">
-              <div className="card card-compact bg-secondary p-2 text-center mx-auto w-fit">
-                <div className="flex flex-col items-center">
+            <div className="collapse-content items-center mx-auto ">
+              <div className="card card-compact bg-secondary p-2 text-center w-full ">
+                <div className="flex flex-col w-full">
                   <input type="checkbox" id="modal" className="modal-toggle" />
                   <div className="modal">
-                    <div className="modal-box flex flex-col items-center">
-                      <div className="text-2xl font-bold my-5 text-center">Post</div>
+                    <div className="modal-box flex flex-col">
+                      <div className="text-2xl font-bold my-5  text-center">Post</div>
                       <textarea
                         className="textarea border-2 border-gray-300 bg-gray-300 h-60 mx-auto px-5 rounded-lg focus:outline-none w-full text-lg text-black"
                         name="message"
@@ -194,7 +194,7 @@ const LineTweets: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <label htmlFor="modal" className="btn btn-primary bg-primary rounded-lg font-bold w-2/4 mx-auto m-5">
+                <label htmlFor="modal" className="btn  btn-primary bg-primary rounded-lg font-bold w-2/4 mx-auto m-5  ">
                   create
                 </label>
                 <input
@@ -205,31 +205,30 @@ const LineTweets: NextPage = () => {
                   onChange={e => setUserSearch(e.target.value)}
                 />
                 <button
-                  className="btn btn-sm bg-primary"
+                  className="btn btn-sm bg-primary   "
                   onClick={async () => await getAllTweetsForUser(userSearch)}
                   disabled={userSearch == ""}
                 >
                   search
                 </button>
-                <div className="flex flex-row justify-center items-center">
+                <div className="flex flex-row justify-center items-center ">
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Follow <div className="font-light"> {formatEther(followPrice)} </div>
-                  </div>
+                  </div>{" "}
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Like <div className="font-light"> {formatEther(likePrice)} </div>
-                  </div>
+                  </div>{" "}
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Repost <div className="font-light"> {formatEther(reTweetPrice)} </div>
-                  </div>
+                  </div>{" "}
                   <div className="text-base font-bold my-2 text-center mx-2">
                     Report <div className="font-light"> {formatEther(reportPrice)} </div>
-                  </div>
+                  </div>{" "}
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="flex flex-col justify-center items-left sm:w-full md:w-3/4 md:mx-auto text-left mt-10 mb-20">
           <div className="flex flex-row text-xl font-bold  align-text-top items-start justify-start text-left h-full mt-10 mb-20">
             <UsersIcon className="w-5 h-5 " />
