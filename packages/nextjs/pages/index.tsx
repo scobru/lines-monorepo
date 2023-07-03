@@ -17,11 +17,12 @@ const Home: NextPage = () => {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className="max-w-3xl text-center items-center my-2 mx-auto">
+      <div className="max-w-3xl text-center items-center my-10 mx-auto">
         <div className="max-w-2xl px-6 py-2 text-center">
           <Image src={tierBanner} alt="Tiers Banner" className="mx-auto mb-10 justify-start" />
-          <p className="mt-4 text-lg font-medium">Record your thoughts, ideas, and feelings on the blockchain.</p>
           <p className="mt-8 text-3xl font-medium">Free, uncensored, and forever.</p>
+          <p className="mt-4 text-xl font-regular">Record your thoughts, ideas, and feelings on the blockchain.</p>
+
           {/*           <img src="https://picsum.photos/1200/600" alt="Random image" className="mx-auto mt-10 rounded-lg shadow-xl" />
            */}{" "}
         </div>
