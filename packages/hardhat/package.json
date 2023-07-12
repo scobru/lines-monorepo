@@ -5,7 +5,7 @@
     "account": "hardhat run scripts/listAccount.ts",
     "chain": "hardhat node --network hardhat --no-deploy",
     "compile": "hardhat compile",
-    "deploy": "hardhat deploy --network polygon --tags LineTweets --export-all ../nextjs/generated/hardhat_contracts.json",
+    "deploy": "hardhat deploy --network polygon --tags Lines --export-all ../nextjs/generated/hardhat_contracts.json",
     "generate": "hardhat run scripts/generateAccount.ts",
     "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore ./*.ts ./deploy/**/*.ts ./scripts/**/*.ts ./test/**/*.ts",
     "lint-staged": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore",
@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.1",
+    "@scobru/buidllib": "^1.1.0",
     "dotenv": "^16.0.3",
     "envfile": "^6.18.0",
     "qrcode": "^1.5.1"

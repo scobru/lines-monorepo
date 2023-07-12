@@ -11,7 +11,9 @@ const Debug: NextPage = () => {
             This is a placeholder text for the introduction to Debug Contracts page. In this page you can...
           </p>
         </div>
-        <ContractUI contractName="YourContract" />
+        <ContractUI contractName="Lines" />
+        <ContractUI contractName="LinesTweet" />
+
       </div>
     </div>
   );

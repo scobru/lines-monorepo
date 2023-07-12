@@ -10,7 +10,7 @@ import { formatEther } from "ethers/lib/utils.js";
 import Address from "../components/scaffold-eth/Address";
 import { useRouter } from "next/router";
 
-const LineTweets: NextPage = () => {
+const LinesTweet: NextPage = () => {
   type Tweet = {
     id: number;
     author: string;
@@ -34,7 +34,7 @@ const LineTweets: NextPage = () => {
   const [userSearch, setUserSearch] = React.useState("");
   const [reportPrice, setReportPrice] = React.useState(0);
 
-  const deployedContract = getDeployedContract(chain?.id.toString(), "LineTweets");
+  const deployedContract = getDeployedContract(chain?.id.toString(), "LinesTweet");
   const [followerCount, setFollowerCount] = React.useState(0);
 
   let ctxAddress!: string;
@@ -295,4 +295,4 @@ const LineTweets: NextPage = () => {
   );
 };
 
-export default LineTweets;
+export default LinesTweet;

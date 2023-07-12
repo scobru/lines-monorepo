@@ -4,8 +4,8 @@
       "name": "polygon",
       "chainId": "137",
       "contracts": {
-        "LineTweets": {
-          "address": "0x9bBA65Eeb7AA44380659B8bA28901b34211ce685",
+        "LinesTweet": {
+          "address": "0x840A6250aA98ACd1c4E31Cb063319a1c663e6B12",
           "abi": [
             {
               "inputs": [],
@@ -351,7 +351,7 @@
           ]
         },
         "Lines": {
-          "address": "0x31215c9C7fa6241765547F0b13e5A21d229C5168",
+          "address": "0xdAf982224f340564D91904dBC542f6c22e4fECC6",
           "abi": [
             {
               "inputs": [
@@ -418,6 +418,19 @@
                 }
               ],
               "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newDevAddress",
+                  "type": "address"
+                }
+              ],
+              "name": "changeDevAddress",
+              "outputs": [],
+              "stateMutability": "nonpayable",
               "type": "function"
             },
             {

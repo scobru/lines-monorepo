@@ -101,4 +101,9 @@ contract Lines {
     (bool success, ) = payable(msg.sender).call{value: amount}("");
     require(success, "Transfer failed.");
   }
+
+  function changeDevAddress(address newDevAddress) public {
+    require(msg.sender == devAddress, "Not dev");
+    devAddress = newDevAddress;
+  }
 }

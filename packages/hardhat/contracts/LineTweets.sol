@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
+
 pragma experimental ABIEncoderV2;
 
 contract LineTweets {
@@ -23,6 +24,7 @@ contract LineTweets {
   uint256 public constant LIKE_PRICE = 0.001 ether;
   uint256 public constant RETWEET_PRICE = 0.0025 ether;
   uint256 public constant REPORT_PRICE = 0.005 ether;
+  uint256 public constant TWEET_PRICE = 1 wei;
 
   address public treasury;
 
@@ -38,6 +40,7 @@ contract LineTweets {
   }
 
   function tweet(string calldata message) external payable {
+    require(msg.value >= TWEET_PRICE, "must send 1 wei to tweet");
     tweets[nextTweetId] = Tweet(nextTweetId, payable(msg.sender), message, 0, 0, block.timestamp, 0);
 
     tweetsOf[msg.sender].push(nextTweetId);
