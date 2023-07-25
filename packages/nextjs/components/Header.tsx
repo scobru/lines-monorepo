@@ -15,7 +15,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
       href={href}
       passHref
       className={`${isActive ? "bg-secondary shadow-md" : ""
-        } hover:bg-secondary focus:bg-secondary py-2 px-4 text-sm font-bold rounded-full focus:text-black text-gray-400 gap-2`}
+        } hover:bg-secondary focus:bg-secondary my-3 mx-1 text-sm font-semibold rounded-full  gap-2`}
     >
       {children}
     </Link>
@@ -49,19 +49,16 @@ export default function Header() {
       </li> */}
       <li>
         <NavLink href="/lines">
-          <PencilSquareIcon className="h-4 w-4" />
           <h1 className="text-base font-semibold my-0">Lines</h1>
         </NavLink>
       </li>
       <li>
         <NavLink href="/linetweets">
-          <Bars4Icon className="h-4 w-4" />
           <h1 className="text-base font-semibold my-0">LinesTweet</h1>{" "}
         </NavLink>
       </li>
       <li>
         <NavLink href="https://scobru.gitbook.io/lines/">
-          <DocumentIcon className="h-4 w-4" />
           <h1 className="text-base font-semibold my-0">Docs</h1>
         </NavLink>
       </li>

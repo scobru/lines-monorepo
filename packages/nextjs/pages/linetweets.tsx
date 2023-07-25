@@ -166,7 +166,7 @@ const LinesTweet: NextPage = () => {
               </div>
             </div>
             <div className="collapse-content items-center mx-auto ">
-              <div className="card card-compact bg-secondary p-2 text-center w-full ">
+              <div className="card card-compact bg-secondary p-10 text-center w-full ">
                 <div className="flex flex-col w-full">
                   <input type="checkbox" id="modal" className="modal-toggle" />
                   <div className="modal">

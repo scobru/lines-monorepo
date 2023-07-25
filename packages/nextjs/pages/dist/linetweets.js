@@ -279,7 +279,7 @@ var LinesTweet = function () {
                         react_1["default"].createElement("div", { className: "text-2xl font-bold   " },
                             react_1["default"].createElement("button", { className: "btn btn-primary text-center " }, "post"))),
                     react_1["default"].createElement("div", { className: "collapse-content items-center mx-auto " },
-                        react_1["default"].createElement("div", { className: "card card-compact bg-secondary p-2 text-center w-full " },
+                        react_1["default"].createElement("div", { className: "card card-compact bg-secondary p-10 text-center w-full " },
                             react_1["default"].createElement("div", { className: "flex flex-col w-full" },
                                 react_1["default"].createElement("input", { type: "checkbox", id: "modal", className: "modal-toggle" }),
                                 react_1["default"].createElement("div", { className: "modal" },
